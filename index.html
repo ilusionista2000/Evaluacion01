@@ -103,7 +103,7 @@ Este documento se compuso con harto copy/paste
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
         // Lo primero es obtener un JSON y parsearlo en una variable de nombre data
-        $.getJSON("https://api.myjson.com/bins/1625gw", function(data) {
+        $.getJSON("https://api.myjson.com/bins/17dqfk", function(data) {
             // Si imprimes data en consola logras dos cosas
             // Lo primero es comprobar el parseo de JSON requerido
             // Lo segundo es conocer la estructura del JSON parseado
@@ -125,9 +125,21 @@ Este documento se compuso con harto copy/paste
                     var segundo =   "<div class=\"card\">";
                         var tercero =   "<img src=\"" + data[x].foto + "\" class=\"card-img-top\">";
                         var cuarto  =   "<div class=\"card-body\">";
-                            var quinto  =   "<h5 class=\"card-title\">" + data[x].nombre + "</h5>"
+                            var quinto  =   "<h5 class=\"card-title\">" + data[x].nombre + "</h5>";
                             var sexto   =   "<p class=\"card-text\">" + data[x].direccion + "</p>";
-                            var septimo =   "<a href=\"" + data[x].instagram + "\" target=\"_blank\" class=\"btn btn-secondary btn-sm\">Instagram</a>";
+                            var septimo;
+                            if (data[x].instagram.includes("https")) {
+                              septimo = "<a href=\"" + data[x].instagram + "\" target=\"_blank\" class=\"btn btn-secondary btn-sm\">Instagram</a>";
+
+                            }
+
+                            else {
+                              septimo = ""
+
+                            }
+
+
+
                         var octavo  =   "</div>";
                     var noveno  =   "</div>";
                 var decimo  =   "</div>";
